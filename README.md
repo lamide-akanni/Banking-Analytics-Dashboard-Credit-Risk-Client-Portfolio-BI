@@ -173,7 +173,7 @@ Python · Pandas · Matplotlib · Seaborn · Jupyter Notebook · MySQL · SQL ·
 
 ## Connect:
 
-OLAMIDE AKANNI | Data Scientist
+OLAMIDE AKANNI | Data Sci. | BI
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/olamide-akanni-b240ab18a/)
 [![Substack](https://img.shields.io/badge/Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://substack.com/@lamideakanni03)
