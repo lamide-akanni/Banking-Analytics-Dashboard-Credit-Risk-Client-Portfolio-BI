@@ -1,4 +1,182 @@
+Banking Analytics Dashboard
 
+A Power BI dashboard built on 3,000 banking clients, covering credit risk, lending, deposits and client retention.
+
+I explored the data in Python, loaded it into a MySQL database, modelled it as a star schema in Power BI and published the finished four-page report to Power BI Service, where anyone with the link can use it.
+
+View the Live Dashboard on Power BI Service - [LINK](https://app.powerbi.com/view?r=eyJrIjoiZWQ1NjBjNGQtYmZkZC00YjE3LWFjMWYtOGM5ZDc5YTRkNzU3IiwidCI6ImU1ZWFlNDA1LWJhMTUtNDA0Yy05MTA2LWRkNGRhNzlhOWNjNiJ9) 
+
+
+Home Image
+
+![Dashboard Page 1 — Banking Analytics Dashboard home showing KPI cards, client breakdown by banking relationship, income band, loyalty class, and regional distribution](screenshots/PBIHome.png)
+
+Data: 3,000 clients, 25 columns (demographics, deposits, loans, fees and risk rating)
+Tools: Python, MySQL, Power BI, DAX, Canva, Power BI Service
+What I wanted to find out
+Which client groups carry the most credit risk, and how does that risk vary by region and income?
+Where are the cross-sell opportunities, for example clients with loans but no deposits?
+Which clients have both bank loans and business lending, and how much is that exposure worth?
+How does income relate to borrowing and to the fees the bank earns?
+How long do clients stay with the bank, and which groups stay longest?
+How it fits together
+Banking.csv  →  Python (Jupyter)  →  MySQL  →  Power BI  →  Power BI Service
+
+Python is where I got to know the data. MySQL gives it a proper structure that can be queried. Power BI turns it into something a business user can explore without writing any code.
+
+1. EDA the data in Python
+Tools: Pandas, NumPy, Matplotlib, Seaborn, Jupyter.
+
+I checked and confirmed all 25 features. 
+I converted Joined Bank to a standard date format (YYYY-MM-DD) so MySQL and Power BI would both read it as a date.
+I then added an Income Band column based on estimated income:
+
+Band	Estimated income	Clients
+Low	up to 100,000	1,027
+Mid	100,000 to 300,000	1,517
+High	over 300,000	456
+
+The client base splits like this:
+
+Region	Clients		Loyalty class	Clients
+European	1,309		Jade	1,331
+Asian	754		Silver	767
+American	507		Gold	585
+Australian	254		Platinum	317
+African	176			
+
+To see how the main financial columns relate to each other, I plotted seven pairs with regression lines:
+
+Bank deposits vs savings accounts
+Checking accounts vs savings accounts
+Checking accounts vs foreign currency accounts
+Age vs superannuation savings
+Estimated income vs checking accounts
+Bank loans vs credit card balance
+Business lending vs bank loans
+
+Deposit Image
+
+![Dashboard Page 2 — Loan and Risk Analysis showing credit exposure KPIs, high-risk client trend over time, loan breakdown by region and occupation, and the full client loan table](screenshots/PBILoan.png)
+
+
+
+A few things stood out. Business lending moves closely with bank loans, so the clients who borrow most are also the ones using business credit. Income has only a weak link to checking account balances. Age has almost no link to superannuation savings. These results shaped what I put on the dashboard: lending, risk by client group, and deposit behaviour.
+
+2. Building the MySQL database
+Tools: MySQL Workbench, SQL, mysql-connector-python
+
+I created a schema called banking_case with a clients_banking table, using client_id as the primary key. I loaded the 3,000 rows from the notebook with mysql-connector-python, using INSERT IGNORE so that running the load twice won't create duplicate clients.
+
+To confirm there were no duplicate IDs, I ran this check, which returned no rows:
+
+sql
+SELECT client_id, COUNT(*)
+FROM clients_banking
+GROUP BY client_id
+HAVING COUNT(*) > 1;
+
+Show Image
+
+
+
+3. Data model in Power BI
+Tools: Power BI Desktop, Power Query, MySQL connector
+
+Power BI connects straight to the MySQL database, so a refresh picks up any changes without exporting files by hand.
+
+I set the tables up as a star schema. bankingx is the fact table, with one row per client. It links to three dimension tables: gender (GenderId), investment advisors (IAId) and banking relationships (BRId). Each relationship is one-to-many and filters from the dimension to the fact table, so one slicer updates every visual on the page.
+
+Show Image
+
+The main DAX measures use:
+
+SUMX for loan and deposit totals
+DISTINCTCOUNT for client counts
+CALCULATE with FILTER for groups such as high-risk clients (risk rating 4 or 5)
+DATEDIFF for how long each client has been with the bank
+SWITCH for grouping clients into engagement bands
+
+Show Image
+
+4. Designing the layout in Canva
+
+Before building anything in Power BI, I designed the pages in Canva: the dark navy theme, the navigation buttons (Home, Loans, Deposits, Q&A), where the KPI cards sit, and the grid. The canvas is 1280 × 720, the same size as a Power BI page, so I could export each design and use it as the page background.
+
+Show Image
+
+5. The dashboard
+
+There are four pages, linked by the navigation bar. Every page can be filtered by join year, time with the bank, gender and age.
+
+Home
+
+The headline numbers: 3K clients, 4.38bn total loans, 3.77bn total deposits and 158.19M in fees. Below them, clients are broken down by banking relationship (Private Bank, Retail, Institutional, Commercial), income band, loyalty class and region.
+
+Show Image
+
+Loans
+
+Total loans of 4.38bn, made up of 1.77bn in bank loans and 2.60bn in business lending, plus 9.53M in credit card balances. 482 clients are rated high risk. The page shows loans by region and occupation, high-risk clients by year from 2000 to 2020, bank loans against business lending over time, and a table of individual clients with their loyalty class, risk rating and advisor.
+
+Show Image
+
+Deposits
+
+Bank deposits of 424.00M, checking accounts of 207.11M, savings of 150.54M and foreign currency of 19.60M, which comes to 801.24M across these four products. The page shows deposits by region and loyalty class, the product mix, and how long clients have been with the bank (1 to 5 years, 5 to 10 years, over 10 years).
+
+Show Image
+
+Data Explorer
+
+This page has a decomposition tree, so you can break the 4.38bn loan total down any way you like, for example by region, then occupation, then risk rating.
+
+Region	Total loans
+European	1.94bn
+Asian	1.08bn
+American	730M
+Australian	382M
+African	about 0.25bn (the rest of the 4.38bn)
+
+Show Image
+
+6. Publishing
+
+I published the report to Power BI Service so it opens in a browser without Power BI Desktop. The filters, cross-highlighting, navigation and decomposition tree all work in the online version.
+
+Open the live dashboard
+
+What the data shows
+European clients hold 1.94bn of the 4.38bn in loans, about 44% of the total.
+482 clients (about 16%) are rated high risk, and the number grows in the years leading up to 2020. These clients are worth closer attention from their advisors.
+Business lending (2.60bn) is larger than bank loans (1.77bn) and has grown sharply since 2015.
+Among deposit products, bank deposits are the largest at 424M and foreign currency the smallest at 19.60M.
+Half of all clients (1,517) are in the mid-income band, and this group also holds the largest share of loans.
+The biggest group of clients has been with the bank for more than 10 years.
+Files
+├── banking analytics.ipynb   Python analysis and the MySQL load
+├── screenshots/              Dashboard pages, data model, DAX, MySQL and Canva
+└── README.md
+Running it yourself
+Open banking analytics.ipynb in Jupyter and change the CSV path in the load cell to where you saved Banking.csv.
+Create the banking_case schema in MySQL, add your connection details to the notebook, and run the load cells.
+In Power BI Desktop, choose Get Data → MySQL database, connect to localhost, select banking_case and set up the relationships described above.
+
+Or just use the live dashboard.
+
+Skills used
+
+Python, Pandas, Matplotlib, Seaborn, exploratory data analysis, data cleaning, feature engineering, regression analysis, MySQL, SQL, database design, Power BI, Power Query, DAX, star schema modelling, dashboard design, Canva, Power BI Service
+
+
+
+
+
+
+
+
+
+############################################################
 **An analytics project from raw client data to a live, interactive Power BI dashboard — covering exploratory data analysis in Python, relational database design in MySQL, data modelling and star schema in Power BI, dashboard design in Canva, and live report hosting via Power BI Service.**
 
 Tools: Python · My(SQL) · Power BI · Canva
@@ -120,19 +298,17 @@ Page 1 - Banking Analytics Dashboard (Home)
 
 The home page opens with four KPI cards running across the top: 3K total clients, 4.38bn total loan, 3.77bn total deposit, and 158.19M total fees. Below the cards, the page breaks down the client base by banking relationship type across Private Bank, Retail, Institutional, and Commercial segments; by income band across High, Mid, and Low; by loyalty class across Jade, Silver, Gold, and Platinum; and by region across European, Asian, American, and Australian. A filter panel on the right lets users slice the whole page by join year, engagement timeframe, gender, and age range.
 
-![Dashboard Page 1 — Banking Analytics Dashboard home showing KPI cards, client breakdown by banking relationship, income band, loyalty class, and regional distribution](screenshots/PBIHome.png)
+
 
 Page 2 - Loan and Risk Analysis
 
 The loans page focuses entirely on credit exposure. Five KPI cards across the top show total loan at 4.38bn, bank loan at 1.77bn, business lending at 2.60bn, credit cards balance at 9.53M, and high-risk clients at 482. Three charts occupy the centre of the page: total loan by region as a horizontal bar chart showing European clients carrying the largest exposure, high-risk clients by year as a line chart tracking the trend from 2000 to 2020, and total loan by occupation. Below these sits a detailed client-level table showing each client's name, total loan value, loyalty class, risk weighting, and assigned investment advisor. A secondary time-series chart on the right tracks bank loans against business lending year by year.
 
-![Dashboard Page 2 — Loan and Risk Analysis showing credit exposure KPIs, high-risk client trend over time, loan breakdown by region and occupation, and the full client loan table](screenshots/PBILoan.png)
 
 Page 3 - Deposit Analysis
 
 The deposits page mirrors the loans page in structure but focuses on the liability side of the portfolio. Five KPI cards across the top show total deposit at 801.24M broken into bank deposit at 424.00M, savings account at 150.54M, checking accounts at 207.11M, and foreign currency at 19.60M. Charts on this page show total deposit by region, total deposit by loyalty class across Jade, Silver, Gold, and Platinum, and a donut chart breaking down the product mix across all four deposit types. A client engagement timeframe chart on the right shows how long clients have been active, grouped into 1-5 years, 5-10 years, and more than 10 years. A detailed table beneath shows individual client deposit values alongside their loyalty class, investment advisor, and banking relationship.
 
-![Dashboard Page 3 — Deposit Analysis showing deposit KPIs by product type, breakdown by region and loyalty class, deposit product mix donut chart, and client engagement timeframe](screenshots/PBISaving.png)
 
 Page 4 - Data Explorer
 
