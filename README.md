@@ -9,7 +9,7 @@ View the Live Dashboard on Power BI Service - [LINK](https://app.powerbi.com/vie
 
 Home Image
 
-![Dashboard Page 1 — Banking Analytics Dashboard home showing KPI cards, client breakdown by banking relationship, income band, loyalty class, and regional distribution](screenshots/PBIHome.png)
+![Dashboard Page 1 — Banking Analytics Dashboard home showing KPI cards, client breakdown by banking relationship, income band, loyalty class, and regional distribution](.png)
 
 Data: 3,000 clients, 25 columns (demographics, deposits, loans, fees and risk rating)
 Tools: Python, MySQL, Power BI, DAX, Canva, Power BI Service
