@@ -1,15 +1,13 @@
-Banking Analytics Dashboard
+Banking Analytics 
 
 A Power BI dashboard built on 3,000 banking clients, covering credit risk, lending, deposits and client retention.
 
 I explored the data in Python, loaded it into a MySQL database, modelled it as a star schema in Power BI and published the finished four-page report to Power BI Service, where anyone with the link can use it.
 
+![Dashboard Page 1 — Banking Analytics Dashboard home showing KPI cards, client breakdown by banking relationship, income band, loyalty class, and regional distribution](Banking_preview.png)
+
 View the Live Dashboard on Power BI Service - [LINK](https://app.powerbi.com/view?r=eyJrIjoiZWQ1NjBjNGQtYmZkZC00YjE3LWFjMWYtOGM5ZDc5YTRkNzU3IiwidCI6ImU1ZWFlNDA1LWJhMTUtNDA0Yy05MTA2LWRkNGRhNzlhOWNjNiJ9) 
 
-
-Home Image
-
-![Dashboard Page 1 — Banking Analytics Dashboard home showing KPI cards, client breakdown by banking relationship, income band, loyalty class, and regional distribution](Banking_preview.png)
 
 Data: 3,000 clients, 25 columns (demographics, deposits, loans, fees and risk rating)
 Tools: Python, MySQL, Power BI, DAX, Canva, Power BI Service
