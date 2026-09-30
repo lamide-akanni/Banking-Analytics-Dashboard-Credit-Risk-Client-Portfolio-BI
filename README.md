@@ -26,7 +26,9 @@ Banking.csv  →  Python (Jupyter)  →  MySQL  →  Power BI  →  Power BI Ser
 
 ##
 
-Clean the data with Python. MySQL gives it a proper structure that can be queried. Power BI turns it into something a business user can explore without writing any code.
+Data cleaning with Python. 
+MySQL gives it a proper structure that can be queried. 
+Power BI turns it into something a business user can explore without writing any code.
 
 **1. EDA the data in Python. Stack: Pandas, NumPy, Matplotlib, Seaborn, Jupyter.**
 
@@ -84,7 +86,6 @@ Stack: Power BI Desktop, Power Query, MySQL connector
 Power BI connects straight to the MySQL database, so a refresh picks up any changes without exporting files by hand.
 
 I set the tables up as a star schema. bankingx is the fact table, with one row per client. It links to three dimension tables: gender (GenderId), investment advisors (IAId) and banking relationships (BRId). Each relationship is one-to-many and filters from the dimension to the fact table, so one slicer updates every visual on the page.
-
 
 The main DAX measures use:
 
