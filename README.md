@@ -22,7 +22,7 @@ How does income relate to borrowing and to the fees the bank earns?
 How long do clients stay with the bank, and which groups stay the longest?
 How it fits together
 
-Banking.csv  →  Python (Jupyter)  →  MySQL  →  Power BI  →  Power BI Service
+**Banking.csv  →  Python (Jupyter)  →  MySQL  →  Power BI  →  Power BI Service**
 
 ##
 Data cleaning with Python. 
@@ -98,7 +98,7 @@ SWITCH for grouping clients into engagement bands
 
 Before building anything in Power BI, I designed the pages in Canva: the dark navy theme, the navigation buttons (Home, Loans, Deposits, Q&A), where the KPI cards sit, and the grid. The canvas is 1280 × 720, the same size as a Power BI page, so I could export each design and use it as the page background.
 
-![Canva](screenshots/design_canva.png)
+![Canva](doc/design_canva.png)
 
 ##
 **5. Data Explorer**
