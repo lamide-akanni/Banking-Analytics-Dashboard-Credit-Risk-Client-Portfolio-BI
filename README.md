@@ -1,4 +1,4 @@
-Banking Analytics 
+**Banking Analytics** 
 
 A Power BI dashboard built on 3,000 banking clients, covering credit risk, lending, deposits, and client retention. Pages are linked by the navigation bar; every page can be filtered by join year, time with the bank, gender, and age.
 
@@ -8,11 +8,12 @@ EDA in Python, loaded and stored in a MySQL database, modelled it as a star sche
 
 View the 4-page report and live dashboard through Power BI Service - [LINK](https://app.powerbi.com/view?r=eyJrIjoiZWQ1NjBjNGQtYmZkZC00YjE3LWFjMWYtOGM5ZDc5YTRkNzU3IiwidCI6ImU1ZWFlNDA1LWJhMTUtNDA0Yy05MTA2LWRkNGRhNzlhOWNjNiJ9) 
 
-
+##
 Data: 3,000 clients, 25 columns (demographics, deposits, loans, fees and risk rating)
 Tools: Python, MySQL, Power BI, DAX, Canva, Power BI Service
 
 **??** 
+
 What I wanted to find out.
 Which client groups carry the most credit risk, and how does that risk vary by region and income?
 Where are the cross-sell opportunities, for example clients with loans but no deposits?
