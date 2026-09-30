@@ -6,7 +6,7 @@ A Power BI dashboard built on 3,000 banking clients, covering credit risk, lendi
 
 EDA in Python, loaded and stored in a MySQL database, modelled it as a star schema in Power BI, and published the finished 4-page report to Power BI Service, where it can be accessed using the link.
 
-View the 4-page report and live dashboard through Power BI Service - [LINK](https://app.powerbi.com/view?r=eyJrIjoiZWQ1NjBjNGQtYmZkZC00YjE3LWFjMWYtOGM5ZDc5YTRkNzU3IiwidCI6ImU1ZWFlNDA1LWJhMTUtNDA0Yy05MTA2LWRkNGRhNzlhOWNjNiJ9) 
+**View the 4-page report and live dashboard on Power BI Service** - [LINK](https://app.powerbi.com/view?r=eyJrIjoiZWQ1NjBjNGQtYmZkZC00YjE3LWFjMWYtOGM5ZDc5YTRkNzU3IiwidCI6ImU1ZWFlNDA1LWJhMTUtNDA0Yy05MTA2LWRkNGRhNzlhOWNjNiJ9) 
 
 ##
 Data: 3,000 clients, 25 columns (demographics, deposits, loans, fees and risk rating)
@@ -72,19 +72,19 @@ FROM clients_banking
 GROUP BY client_id
 HAVING COUNT(*) > 1;
 
-Show Image
+
+![MYSQLworkbench](screenshots/MYSQLworkbench.png)
 
 
 ##
 
-**3. Data model in Power BI**
+**3. Data model  and DAX in Power BI**
 Stack: Power BI Desktop, Power Query, MySQL connector
 
 Power BI connects straight to the MySQL database, so a refresh picks up any changes without exporting files by hand.
 
 I set the tables up as a star schema. bankingx is the fact table, with one row per client. It links to three dimension tables: gender (GenderId), investment advisors (IAId) and banking relationships (BRId). Each relationship is one-to-many and filters from the dimension to the fact table, so one slicer updates every visual on the page.
 
-Show Image
 
 The main DAX measures use:
 
@@ -94,7 +94,8 @@ CALCULATE with FILTER for groups such as high-risk clients (risk rating 4 or 5)
 DATEDIFF for how long each client has been with the bank
 SWITCH for grouping clients into engagement bands
 
-Show Image
+
+![MYSQLworkbench](screenshots/MYSQLworkbench.png)
 
 ##
 
@@ -102,34 +103,16 @@ Show Image
 
 Before building anything in Power BI, I designed the pages in Canva: the dark navy theme, the navigation buttons (Home, Loans, Deposits, Q&A), where the KPI cards sit, and the grid. The canvas is 1280 × 720, the same size as a Power BI page, so I could export each design and use it as the page background.
 
-Show Image
+
+![Canva](screenshots/design_canva.png)
 
 ##
 
-**5. The dashboard**
 
-There are four pages,
-Home
 
-The headline numbers: 3K clients, 4.38bn total loans, 3.77bn total deposits and 158.19M in fees. Below them, clients are broken down by banking relationship (Private Bank, Retail, Institutional, Commercial), income band, loyalty class and region.
+**5. Data Explorer**
 
-Show Image
-
-Loans
-
-Total loans of 4.38bn, made up of 1.77bn in bank loans and 2.60bn in business lending, plus 9.53M in credit card balances. 482 clients are rated high risk. The page shows loans by region and occupation, high-risk clients by year from 2000 to 2020, bank loans against business lending over time, and a table of individual clients with their loyalty class, risk rating and advisor.
-
-Show Image
-
-Deposits
-
-Bank deposits of 424.00M, checking accounts of 207.11M, savings of 150.54M and foreign currency of 19.60M, which comes to 801.24M across these four products. The page shows deposits by region and loyalty class, the product mix, and how long clients have been with the bank (1 to 5 years, 5 to 10 years, over 10 years).
-
-Show Image
-
-Data Explorer
-
-This page has a decomposition tree, so you can break the 4.38bn loan total down any way you like, for example by region, then occupation, then risk rating.
+A decomposition tree, so you can break the 4.38bn loan total down any way you like, for example by region, then occupation, then risk rating.
 
 Region	Total loans
 European	1.94bn
@@ -138,18 +121,7 @@ American	730M
 Australian	382M
 African	about 0.25bn (the rest of the 4.38bn)
 
-Show Image
-
-
-
-
-
-
-
-
-
-
-
+##
 
 **Key Findings
 The total loan portfolio across 3K clients stands at 4.38bn, with European clients carrying the largest share by region at 1.94bn.
@@ -162,8 +134,7 @@ Engagement timeframe data shows that the largest portion of the client base has 
 
 
 ---
-**Skills**
-
+Skills
 Python · Pandas · Matplotlib · Seaborn · Jupyter Notebook · MySQL · SQL · Multi-Table Joins · Relational Schema Design · Data Cleaning · Exploratory Data Analysis · Power BI · DAX · Star Schema · Data Modelling · Power Query · KPI Dashboard Design · Canva Design · Business Intelligence · Data Storytelling · Power BI Service
 
 ---
