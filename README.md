@@ -2,7 +2,7 @@
 
 A Power BI dashboard built on 3,000 banking clients, covering credit risk, lending, deposits, and client retention. Pages are linked by the navigation bar; every page can be filtered by join year, time with the bank, gender, and age.
 
-![Banking Analytics Dashboard Home](screenshots/PBIHome.png)
+![Banking Analytics Dashboard Home](screenshots/PBIHomee.png)
 
 EDA in Python, loaded and stored in a MySQL database, modelled it as a star schema in Power BI, and published the finished 4-page report to Power BI Service, where it can be accessed using the link.
 
