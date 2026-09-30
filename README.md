@@ -4,7 +4,7 @@ A Power BI dashboard built on 3,000 banking clients, covering credit risk, lendi
 
 ![Banking Analytics Dashboard Home](doc/pbi_home.png)
 
-EDA in Python, loaded and stored in a MySQL database, modelled it as a star schema in Power BI, and published the finished 4-page report to Power BI Service, where it can be accessed using the link.
+Performed EDA in Python, stored data in a MySQL database, modelled it as a star schema in Power BI, and published the finished 4-page report to Power BI Service, where it can be accessed via the link.
 
 **View the 4-page report and live dashboard on Power BI Service** - [LINK](https://app.powerbi.com/view?r=eyJrIjoiZWQ1NjBjNGQtYmZkZC00YjE3LWFjMWYtOGM5ZDc5YTRkNzU3IiwidCI6ImU1ZWFlNDA1LWJhMTUtNDA0Yy05MTA2LWRkNGRhNzlhOWNjNiJ9) 
 
