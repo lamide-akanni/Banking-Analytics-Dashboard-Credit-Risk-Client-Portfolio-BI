@@ -25,7 +25,6 @@ How it fits together
 Banking.csv  →  Python (Jupyter)  →  MySQL  →  Power BI  →  Power BI Service
 
 ##
-
 Data cleaning with Python. 
 MySQL gives it a proper structure that can be queried. 
 Power BI turns it into something a business user can explore without writing any code.
@@ -61,7 +60,6 @@ Business lending vs bank loans
 *A few things stood out. Business lending moves closely with bank loans, so the clients who borrow most are also the ones using business credit. Income has only a weak link to checking account balances. Age has almost no link to superannuation savings. These results shaped what I put on the dashboard: lending, risk by client group, and deposit behaviour.*
 
 ##
-
 **2. Building the MySQL database. Stack: MySQL Workbench, SQL, mysql-connector-python**
 
 I created a schema called banking_case with a clients_banking table, using client_id as the primary key. I loaded the 3,000 rows from the notebook with mysql-connector-python, using INSERT IGNORE so that running the load twice won't create duplicate clients.
@@ -77,9 +75,7 @@ HAVING COUNT(*) > 1;
 
 ![MYSQLworkbench](screenshots/MYSQLworkbench.png)
 
-
 ##
-
 **3. Data model  and DAX in Power BI**
 Stack: Power BI Desktop, Power Query, MySQL connector
 
@@ -108,9 +104,6 @@ Before building anything in Power BI, I designed the pages in Canva: the dark na
 ![Canva](screenshots/design_canva.png)
 
 ##
-
-
-
 **5. Data Explorer**
 
 A decomposition tree, so you can break the 4.38bn loan total down any way you like, for example by region, then occupation, then risk rating.
@@ -123,7 +116,6 @@ Australian	382M
 African	about 0.25bn (the rest of the 4.38bn)
 
 ##
-
 **Key Findings**
 
 The total loan portfolio across 3K clients stands at 4.38bn, with European clients carrying the largest share by region at 1.94bn.
@@ -133,13 +125,11 @@ The deposit portfolio totals 801.24M, with bank deposits making up the largest s
 The majority of clients sit in the mid income band, which also accounts for the largest share of total loan uptake across the portfolio.
 Engagement timeframe data shows that the largest portion of the client base has been with the bank for more than 10 years, indicating strong retention in the core portfolio.
 
-
-
+##
 ---
 Skills:
 
 Python · Pandas · Matplotlib · Seaborn · Jupyter Notebook · MySQL · SQL · Multi-Table Joins · Relational Schema Design · Data Cleaning · Exploratory Data Analysis · Power BI · DAX · Star Schema · Data Modelling · Power Query · KPI Dashboard Design · Canva Design · Business Intelligence · Data Storytelling · Power BI Service
-
 ---
 
 ## Connect:
@@ -151,7 +141,5 @@ OLAMIDE AKANNI | Data Sci. | BI
 [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@akannilmd)
 [![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:akannilmd@gmail.com)
 
-
 ---
-
 Feedback welcome!
