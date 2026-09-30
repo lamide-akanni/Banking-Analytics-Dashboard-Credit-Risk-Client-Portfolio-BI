@@ -57,6 +57,8 @@ Estimated income vs checking accounts
 Bank loans vs credit card balance
 Business lending vs bank loans
 
+![Regression](doc/python_reg_plot.png)
+
 *A few things stood out. Business lending moves closely with bank loans, so the clients who borrow most are also the ones using business credit. Income has only a weak link to checking account balances. Age has almost no link to superannuation savings. These results shaped what I put on the dashboard: lending, risk by client group, and deposit behaviour.*
 
 ##
