@@ -29,7 +29,7 @@ Data cleaning with Python.
 MySQL gives it a proper structure that can be queried. 
 Power BI turns it into something a business user can explore without writing any code.
 
-**1. EDA the data in Python. Stack: Pandas, NumPy, Matplotlib, Seaborn, Jupyter.**
+**1. EDA the data in Python.** Stack: Pandas, NumPy, Matplotlib, Seaborn, Jupyter.
 
 I checked and confirmed all 25 features. 
 I converted Joined Bank to a standard date format (YYYY-MM-DD) so MySQL and Power BI would both read it as a date.
@@ -60,7 +60,7 @@ Business lending vs bank loans
 *A few things stood out. Business lending moves closely with bank loans, so the clients who borrow most are also the ones using business credit. Income has only a weak link to checking account balances. Age has almost no link to superannuation savings. These results shaped what I put on the dashboard: lending, risk by client group, and deposit behaviour.*
 
 ##
-**2. Building the MySQL database. Stack: MySQL Workbench, SQL, mysql-connector-python**
+**2. Building the MySQL database.** Stack: MySQL Workbench, SQL, mysql-connector-python
 
 I created a schema called banking_case with a clients_banking table, using client_id as the primary key. I loaded the 3,000 rows from the notebook with mysql-connector-python, using INSERT IGNORE so that running the load twice won't create duplicate clients.
 
@@ -76,8 +76,7 @@ HAVING COUNT(*) > 1;
 ![MYSQLworkbench](doc/mysql_workbench.png)
 
 ##
-**3. Data model  and DAX in Power BI**
-Stack: Power BI Desktop, Power Query, MySQL connector
+**3. Data Model  and DAX in Power BI.** Stack: Power BI Desktop, Power Query, MySQL connector
 
 Power BI connects straight to the MySQL database, so a refresh picks up any changes without exporting files by hand.
 
@@ -91,15 +90,13 @@ CALCULATE with FILTER for groups such as high-risk clients (risk rating 4 or 5)
 DATEDIFF for how long each client has been with the bank
 SWITCH for grouping clients into engagement bands
 
-
 ![DAX](doc/dax_measure.png)
 
 ##
 
-**4. Designing the layout in Canva**
+**4. Designing & Layout.** Stack: Canva
 
 Before building anything in Power BI, I designed the pages in Canva: the dark navy theme, the navigation buttons (Home, Loans, Deposits, Q&A), where the KPI cards sit, and the grid. The canvas is 1280 × 720, the same size as a Power BI page, so I could export each design and use it as the page background.
-
 
 ![Canva](screenshots/design_canva.png)
 
