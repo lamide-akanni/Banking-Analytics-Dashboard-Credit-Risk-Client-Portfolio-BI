@@ -126,13 +126,12 @@ The majority of clients sit in the mid income band, which also accounts for the 
 Engagement timeframe data shows that the largest portion of the client base has been with the bank for more than 10 years, indicating strong retention in the core portfolio.
 
 ##
----
-Skills:
+**Skills**
 
 Python · Pandas · Matplotlib · Seaborn · Jupyter Notebook · MySQL · SQL · Multi-Table Joins · Relational Schema Design · Data Cleaning · Exploratory Data Analysis · Power BI · DAX · Star Schema · Data Modelling · Power Query · KPI Dashboard Design · Canva Design · Business Intelligence · Data Storytelling · Power BI Service
----
 
-## Connect:
+## 
+Connect:
 
 OLAMIDE AKANNI | Data Sci. | BI
 
