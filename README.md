@@ -29,7 +29,7 @@ Data cleaning with Python.
 MySQL gives it a proper structure that can be queried. 
 Power BI turns it into something a business user can explore without writing any code.
 
-**1. EDA the data in Python.** Stack: Pandas, NumPy, Matplotlib, Seaborn, Jupyter.
+**1. EDA** Stack: Pandas, NumPy, Matplotlib, Seaborn, Jupyter.
 
 I checked and confirmed all 25 features. 
 I converted Joined Bank to a standard date format (YYYY-MM-DD) so MySQL and Power BI would both read it as a date.
