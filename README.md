@@ -2,7 +2,7 @@
 
 A Power BI dashboard built on 3,000 banking clients, covering credit risk, lending, deposits, and client retention. Pages are linked by the navigation bar; every page can be filtered by join year, time with the bank, gender, and age.
 
-![Banking Analytics Dashboard Home](screenshots/PBIHomee.png)
+![Banking Analytics Dashboard Home](doc/pbi_home.png)
 
 EDA in Python, loaded and stored in a MySQL database, modelled it as a star schema in Power BI, and published the finished 4-page report to Power BI Service, where it can be accessed using the link.
 
@@ -73,7 +73,7 @@ GROUP BY client_id
 HAVING COUNT(*) > 1;
 
 
-![MYSQLworkbench](screenshots/MYSQLworkbench.png)
+![MYSQLworkbench](doc/mysql_workbench.png)
 
 ##
 **3. Data model  and DAX in Power BI**
@@ -92,7 +92,7 @@ DATEDIFF for how long each client has been with the bank
 SWITCH for grouping clients into engagement bands
 
 
-![MYSQLworkbench](screenshots/MYSQLworkbench.png)
+![DAX](doc/dax_measure.png)
 
 ##
 
@@ -108,7 +108,7 @@ Before building anything in Power BI, I designed the pages in Canva: the dark na
 
 A decomposition tree, so you can break the 4.38bn loan total down any way you like, for example by region, then occupation, then risk rating.
 
-Region	Total loans
+Region	Total loans:
 European	1.94bn
 Asian	1.08bn
 American	730M
